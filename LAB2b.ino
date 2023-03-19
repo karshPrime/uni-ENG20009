@@ -21,7 +21,10 @@ void setup() {
 }
 
 void loop() {
+  static bool moveRight = true;
   static int  start = 0;
+  static int  speedBuffer = 1;
+  static int  speed = 300;
   static int  num = 0;
 
   // getting dip-switch data
@@ -30,6 +33,13 @@ void loop() {
     if (not switchState) {
       num += pow(2, (5-j));
     }
+  }
+
+  // move character if required
+  if (moveRight) {
+    speedBuffer++;
+    if (speedBuffer > speed) {start += 1; speedBuffer = 0;}
+    if (start == 9) {start = 0;}
   }
 
   // different leds for different num
