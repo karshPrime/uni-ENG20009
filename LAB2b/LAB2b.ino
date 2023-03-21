@@ -159,13 +159,13 @@ void drawSequence(int arrayLen, int* r, int* c, int start) {
 
 // turn on single led
 void singleLED(int x, int y) {
-  ledreset();
+  ledReset();
   digitalWrite(rows[y], HIGH);
   digitalWrite(cols[x], LOW);
 }
 
 // reset grid
-void ledreset() {
+void ledReset() {
   for (int i = 0; i < 8; i++) {
     digitalWrite(rows[i], LOW);
     digitalWrite(cols[i], HIGH);
